@@ -1,11 +1,11 @@
-<% content_for :title, "New proveedor" %>
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
 
-<h1>New proveedor</h1>
+<% content_for :title, "New Proveedor" %>
+
+<h1>New Proveedor</h1>
 
 <%= render "form", proveedor: @proveedor %>
 
-<br>
-
-<div>
-  <%= link_to "Back to proveedors", proveedors_path %>
+<div class="actions">
+  <%= link_to "Back to Proveedores", proveedors_path, class: "btn btn-back" %>
 </div>

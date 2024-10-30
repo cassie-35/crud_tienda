@@ -1,10 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
 
-<%= render @proveedor %>
+<p class="notice"><%= notice %></p>
+
+<div class="usuario-detalle">
+  <%= render @proveedor %>
+</div>
 
 <div>
-  <%= link_to "Edit this proveedor", edit_proveedor_path(@proveedor) %> |
-  <%= link_to "Back to proveedors", proveedors_path %>
+  <%= link_to "Edit this Proveedor", edit_proveedor_path(@proveedor), class: "btn btn-edit" %> |
+  <%= link_to "Back to Proveedores", proveedors_path, class: "btn btn-back" %>
 
-  <%= button_to "Destroy this proveedor", @proveedor, method: :delete %>
+  <%= button_to "Destroy this Proveedor", @proveedor, method: :delete, class: "btn btn-delete" %>
 </div>

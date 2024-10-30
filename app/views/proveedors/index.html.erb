@@ -1,16 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
 
-<% content_for :title, "Proveedors" %>
+<p class="notice"><%= notice %></p>
 
-<h1>Proveedors</h1>
+<% content_for :title, "Proveedores" %>
+<h1>Proveedores</h1>
 
-<div id="proveedors">
+<div id="categoria">
   <% @proveedors.each do |proveedor| %>
-    <%= render proveedor %>
-    <p>
-      <%= link_to "Show this proveedor", proveedor %>
-    </p>
+    <div class="usuario-card">
+      <%= render proveedor %>
+      <p>
+        <%= link_to "Show this proveedor", proveedor, class: "btn btn-view" %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New proveedor", new_proveedor_path %>
+<%= link_to "New Proveedor", new_proveedor_path, class: "btn btn-new" %>

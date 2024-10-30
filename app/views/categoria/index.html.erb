@@ -1,16 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
 
-<% content_for :title, "Categoria" %>
+<p class="notice"><%= notice %></p>
 
-<h1>Categoria</h1>
+<% content_for :title, "Categories" %>
+<h1>Categories</h1>
 
 <div id="categoria">
   <% @categoria.each do |categorium| %>
-    <%= render categorium %>
-    <p>
-      <%= link_to "Show this categorium", categorium %>
-    </p>
+    <div class="usuario-card">
+      <%= render categorium %>
+      <p>
+        <%= link_to "Show", categorium, class: "btn btn-view" %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New categorium", new_categorium_path %>
+<%= link_to "New Category", new_categorium_path, class: "btn btn-new" %>

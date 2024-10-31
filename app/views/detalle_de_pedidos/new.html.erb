@@ -1,11 +1,33 @@
-<% content_for :title, "New detalle de pedido" %>
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
+<h1>Nuevo Detalle de Pedido</h1>
 
-<h1>New detalle de pedido</h1>
+<%= form_with(model: @detalle_de_pedido, local: true) do |form| %>
+  <div>
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad, required: true %>
+  </div>
 
-<%= render "form", detalle_de_pedido: @detalle_de_pedido %>
+  <div>
+    <%= form.label :precio_unitario %>
+    <%= form.number_field :precio_unitario, step: 0.01, required: true %>
+  </div>
 
-<br>
+  <div>
+    <%= form.label :subtotal %>
+    <%= form.number_field :subtotal, step: 0.01, required: true %>
+  </div>
 
-<div>
-  <%= link_to "Back to detalle de pedidos", detalle_de_pedidos_path %>
-</div>
+  <div>
+    <%= form.label :pedido_id %>
+    <%= form.collection_select :pedido_id, Pedido.all, :id, :id, prompt: true %> <!-- Ajusta según el atributo que desees mostrar -->
+  </div>
+
+  <div>
+    <%= form.label :producto_id %>
+    <%= form.collection_select :producto_id, Producto.all, :id, :nombre, prompt: true %> <!-- Asegúrate de que el modelo Producto tenga un método `nombre` -->
+  </div>
+
+  <div>
+    <%= form.submit "Guardar Detalle de Pedido" %>
+  </div>
+<% end %>

@@ -1,39 +1,24 @@
-<%= form_with(model: detalle_de_pedido) do |form| %>
-  <% if detalle_de_pedido.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(detalle_de_pedido.errors.count, "error") %> prohibited this detalle_de_pedido from being saved:</h2>
-
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
+<%= form_with(model: pedido, local: true) do |form| %>
+  <% if pedido.errors.any? %>
+    <div class="error_explanation">
+      <h2><%= pluralize(pedido.errors.count, "error") %> prohibieron que el pedido se guardara:</h2>
       <ul>
-        <% detalle_de_pedido.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% pedido.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
   <div>
-    <%= form.label :cantidad, style: "display: block" %>
-    <%= form.number_field :cantidad %>
+    <%= form.label :campo1 %>  <!-- Cambia :campo1 por el campo real -->
+    <%= form.text_field :campo1, required: true %>
   </div>
 
   <div>
-    <%= form.label :precio_unitario, style: "display: block" %>
-    <%= form.text_field :precio_unitario %>
-  </div>
-
-  <div>
-    <%= form.label :subtotal, style: "display: block" %>
-    <%= form.text_field :subtotal %>
-  </div>
-
-  <div>
-    <%= form.label :pedido_id, style: "display: block" %>
-    <%= form.text_field :pedido_id %>
-  </div>
-
-  <div>
-    <%= form.label :producto_id, style: "display: block" %>
-    <%= form.text_field :producto_id %>
+    <%= form.label :campo2 %>  <!-- Cambia :campo2 por el campo real -->
+    <%= form.text_field :campo2, required: true %>
   </div>
 
   <div>

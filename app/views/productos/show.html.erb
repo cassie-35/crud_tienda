@@ -1,10 +1,39 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
 
-<%= render @producto %>
+<h1>Detalles del Producto</h1>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @producto.nombre %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= number_to_currency(@producto.precio) %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @producto.stock %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @producto.descripcion %>
+</p>
+
+<p>
+  <strong>Categoría:</strong>
+  <%= @producto.categoria.nombre %>
+</p>
+
+<p>
+  <strong>Proveedor:</strong>
+  <%= @producto.proveedor.nombre %>
+</p>
 
 <div>
-  <%= link_to "Edit this producto", edit_producto_path(@producto) %> |
-  <%= link_to "Back to productos", productos_path %>
-
-  <%= button_to "Destroy this producto", @producto, method: :delete %>
+  <%= link_to 'Editar', edit_producto_path(@producto) %>
+  <%= link_to 'Eliminar', @producto, method: :delete, data: { confirm: '¿Estás seguro de que deseas eliminar este producto?' } %>
+  <%= link_to 'Volver a la lista de productos', productos_path %>
 </div>

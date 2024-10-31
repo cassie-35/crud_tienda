@@ -1,16 +1,23 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
+<h1>Lista de Pedidos</h1>
 
-<% content_for :title, "Detalle de pedidos" %>
-
-<h1>Detalle de pedidos</h1>
-
-<div id="detalle_de_pedidos">
-  <% @detalle_de_pedidos.each do |detalle_de_pedido| %>
-    <%= render detalle_de_pedido %>
-    <p>
-      <%= link_to "Show this detalle de pedido", detalle_de_pedido %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New detalle de pedido", new_detalle_de_pedido_path %>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Fecha</th> <!-- Agrega otros campos relevantes aquí -->
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pedidos.each do |pedido| %>
+      <tr>
+        <td><%= pedido.id %></td>
+        <td><%= pedido.created_at %></td> <!-- Muestra la fecha de creación -->
+        <td>
+          <%= link_to 'Ver Detalles', detalle_de_pedido_path(pedido) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

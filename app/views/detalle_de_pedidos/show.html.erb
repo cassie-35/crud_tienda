@@ -1,10 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
+<h1>Detalles del Pedido <%= @pedido.id %></h1>
+<h2>Detalles:</h2>
+<%= form_with(model: DetalleDePedido.new, url: pedido_detalle_de_pedidos_path(@pedido), local: true) do |form| %>
+  <div>
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad, required: true %>
+  </div>
 
-<%= render @detalle_de_pedido %>
+  <div>
+    <%= form.label :precio_unitario %>
+    <%= form.number_field :precio_unitario, step: 0.01, required: true %>
+  </div>
 
-<div>
-  <%= link_to "Edit this detalle de pedido", edit_detalle_de_pedido_path(@detalle_de_pedido) %> |
-  <%= link_to "Back to detalle de pedidos", detalle_de_pedidos_path %>
+  <div>
+    <%= form.label :subtotal %>
+    <%= form.number_field :subtotal, step: 0.01, required: true %>
+  </div>
 
-  <%= button_to "Destroy this detalle de pedido", @detalle_de_pedido, method: :delete %>
-</div>
+  <div>
+    <%= form.label :producto_id %>
+    <%= form.collection_select :producto_id, Producto.all, :id, :nombre, prompt: true %>
+  </div>
+
+  <div>
+    <%= form.submit "Agregar Detalle" %>
+  </div>
+<% end %>

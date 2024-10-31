@@ -1,16 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
+<h1>Lista de Productos</h1>
 
-<% content_for :title, "Productos" %>
-
-<h1>Productos</h1>
-
-<div id="productos">
-  <% @productos.each do |producto| %>
-    <%= render producto %>
-    <p>
-      <%= link_to "Show this producto", producto %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New producto", new_producto_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th>Descripción</th>
+      <th>Categoría</th>
+      <th>Proveedor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @productos.each do |producto| %>
+      <tr>
+        <td><%= producto.nombre %></td>
+        <td><%= number_to_currency(producto.precio) %></td>
+        <td><%= producto.stock %></td>
+        <td><%= producto.descripcion %></td>
+        <td><%= producto.categoria.nombre if producto.categoria %></td>
+        <td><%= producto.proveedor.nombre if producto.proveedor %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,11 +1,39 @@
-<% content_for :title, "New producto" %>
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
 
-<h1>New producto</h1>
+<h1>Nuevo Producto</h1>
 
-<%= render "form", producto: @producto %>
+<%= form_with(model: @producto, local: true) do |form| %>
+  <div>
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, required: true %>
+  </div>
 
-<br>
+  <div>
+    <%= form.label :precio %>
+    <%= form.number_field :precio, step: 0.01, required: true %>
+  </div>
 
-<div>
-  <%= link_to "Back to productos", productos_path %>
-</div>
+  <div>
+    <%= form.label :stock %>
+    <%= form.number_field :stock, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion %>
+  </div>
+
+  <div>
+    <%= form.label :categoria_id %>
+    <%= form.collection_select :categoria_id, Categoria.all, :id, :nombre, prompt: true %>
+  </div>
+
+  <div>
+    <%= form.label :proveedor_id %>
+    <%= form.collection_select :proveedor_id, Proveedor.all, :id, :nombre, prompt: true %>
+  </div>
+
+  <div>
+    <%= form.submit "Guardar Producto" %>
+  </div>
+<% end %>

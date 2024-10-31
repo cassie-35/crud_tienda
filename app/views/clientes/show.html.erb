@@ -1,10 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
+ <div class="d-flex justify-content-center alert alert-dismissible alert-success p-5">
+
 <%= render @cliente %>
 
-<div>
-  <%= link_to "Edit this cliente", edit_cliente_path(@cliente) %> |
-  <%= link_to "Back to clientes", clientes_path %>
-
-  <%= button_to "Destroy this cliente", @cliente, method: :delete %>
 </div>
+<div class="container text-center">
+<div class="form-control" >
+  <%= link_to "Editar cliente", edit_cliente_path(@cliente) %> |
+  <%= link_to "Regresar a clientes", clientes_path %>
+  <div class="form-control ">
+  <%= button_to "Eliminar cliente", @cliente, method: :delete, class: "btn btn-danger" %>
+ </div>
+ </div>
+ </div>

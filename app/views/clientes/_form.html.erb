@@ -11,32 +11,36 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :nombre, style: "display: block" %>
+
+  <div class="container  card text-white bg-primary mb-3 p-3" style="max-width: 20rem;" >
+
+  <div class="mb-3 form-control" >
+    <%= form.label :nombre, style: "display: block " %>
     <%= form.text_field :nombre %>
   </div>
 
-  <div>
+  <div class="mb-3 form-control">
     <%= form.label :email, style: "display: block" %>
     <%= form.text_field :email %>
   </div>
 
-  <div>
+  <div class="mb-3 form-control">
     <%= form.label :telefono, style: "display: block" %>
     <%= form.text_field :telefono %>
   </div>
 
-  <div>
+  <div class="mb-3 form-control">
     <%= form.label :direccion, style: "display: block" %>
     <%= form.text_field :direccion %>
   </div>
 
-  <div>
+  <div class="mb-3 form-control">
     <%= form.label :fecha_registro, style: "display: block" %>
     <%= form.date_field :fecha_registro %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Crear Cliente", class: "btn btn-dark m-3" %>
+  </div>
   </div>
 <% end %>

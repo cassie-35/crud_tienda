@@ -11,32 +11,36 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="container text-center card text-white bg-success mb-3 p-2" style="max-width: 20rem;" >
+
+  <div class="mb-3 form-control">
     <%= form.label :fecha_pedido, style: "display: block" %>
     <%= form.date_field :fecha_pedido %>
   </div>
 
-  <div>
+  <div class="mb-3 form-control">
     <%= form.label :total, style: "display: block" %>
     <%= form.text_field :total %>
   </div>
 
-  <div>
+  <div class="mb-3 form-control">
     <%= form.label :estado, style: "display: block" %>
     <%= form.text_field :estado %>
   </div>
 
-  <div>
+  <div class="mb-3 form-control">
     <%= form.label :metodo_de_pago, style: "display: block" %>
     <%= form.text_field :metodo_de_pago %>
   </div>
 
-  <div>
+  <div class="mb-3 form-control">
     <%= form.label :cliente_id, style: "display: block" %>
     <%= form.text_field :cliente_id %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Crear Pedido", class: "btn btn-dark m-3" %>
+  </div>
+
   </div>
 <% end %>

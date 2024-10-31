@@ -3,7 +3,7 @@ class DetalleDePedidosController < ApplicationController
 
   # GET /detalle_de_pedidos or /detalle_de_pedidos.json
   def index
-    @detalle_de_pedidos = DetalleDePedido.all
+    @detalle_de_pedido = DetalleDePedido.all
   end
 
   # GET /detalle_de_pedidos/1 or /detalle_de_pedidos/1.json

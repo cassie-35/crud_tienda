@@ -1,9 +1,9 @@
 class DetalleDePedidosController < ApplicationController
-  before_action :set_detalle_de_pedido, only: %i[ show edit update destroy ]
+  before_action :set_detalle_de_pedido, only: %i[show edit update destroy]
 
   # GET /detalle_de_pedidos or /detalle_de_pedidos.json
   def index
-    @detalle_de_pedido = DetalleDePedido.all
+    @detalle_de_pedidos = DetalleDePedido.all
   end
 
   # GET /detalle_de_pedidos/1 or /detalle_de_pedidos/1.json
@@ -25,7 +25,7 @@ class DetalleDePedidosController < ApplicationController
 
     respond_to do |format|
       if @detalle_de_pedido.save
-        format.html { redirect_to @detalle_de_pedido, notice: "Detalle de pedido was successfully created." }
+        format.html { redirect_to @detalle_de_pedido, notice: "Detalle de pedido creado exitosamente." }
         format.json { render :show, status: :created, location: @detalle_de_pedido }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class DetalleDePedidosController < ApplicationController
   def update
     respond_to do |format|
       if @detalle_de_pedido.update(detalle_de_pedido_params)
-        format.html { redirect_to @detalle_de_pedido, notice: "Detalle de pedido was successfully updated." }
+        format.html { redirect_to @detalle_de_pedido, notice: "Detalle de pedido actualizado exitosamente." }
         format.json { render :show, status: :ok, location: @detalle_de_pedido }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,15 +49,16 @@ class DetalleDePedidosController < ApplicationController
 
   # DELETE /detalle_de_pedidos/1 or /detalle_de_pedidos/1.json
   def destroy
-    @detalle_de_pedido.destroy!
+    @detalle_de_pedido.destroy
 
     respond_to do |format|
-      format.html { redirect_to detalle_de_pedidos_path, status: :see_other, notice: "Detalle de pedido was successfully destroyed." }
+      format.html { redirect_to detalle_de_pedidos_path, status: :see_other, notice: "Detalle de pedido eliminado exitosamente." }
       format.json { head :no_content }
     end
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_detalle_de_pedido
       @detalle_de_pedido = DetalleDePedido.find(params[:id])

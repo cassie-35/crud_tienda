@@ -1,5 +1,5 @@
 class CategoriaController < ApplicationController
-  before_action :set_categorium, only: %i[ show edit update destroy ]
+  before_action :set_categorium, only: %i[show edit update destroy]
 
   # GET /categoria or /categoria.json
   def index
@@ -25,7 +25,7 @@ class CategoriaController < ApplicationController
 
     respond_to do |format|
       if @categorium.save
-        format.html { redirect_to @categorium, notice: "Categorium was successfully created." }
+        format.html { redirect_to @categorium, notice: "Categoría creada exitosamente." }
         format.json { render :show, status: :created, location: @categorium }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class CategoriaController < ApplicationController
   def update
     respond_to do |format|
       if @categorium.update(categorium_params)
-        format.html { redirect_to @categorium, notice: "Categorium was successfully updated." }
+        format.html { redirect_to @categorium, notice: "Categoría actualizada exitosamente." }
         format.json { render :show, status: :ok, location: @categorium }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,10 +49,10 @@ class CategoriaController < ApplicationController
 
   # DELETE /categoria/1 or /categoria/1.json
   def destroy
-    @categorium.destroy!
+    @categorium.destroy
 
     respond_to do |format|
-      format.html { redirect_to categoria_path, status: :see_other, notice: "Categorium was successfully destroyed." }
+      format.html { redirect_to categorias_path, status: :see_other, notice: "Categoría eliminada exitosamente." }
       format.json { head :no_content }
     end
   end

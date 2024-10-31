@@ -1,22 +1,32 @@
-<p style="color: green"><%= notice %></p>
+<h1>Lista de Clientes</h1>
 
-<% content_for :title, "Clientes" %>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Dirección</th>
+      <th>Fecha de Registro</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clientes.each do |cliente| %>
+      <tr>
+        <td><%= cliente.nombre %></td>
+        <td><%= cliente.email %></td>
+        <td><%= cliente.telefono %></td>
+        <td><%= cliente.direccion %></td>
+        <td><%= cliente.fecha_registro %></td>
+        <td>
+          <%= link_to 'Ver', cliente %>
+          <%= link_to 'Editar', edit_cliente_path(cliente) %>
+          <%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Estás seguro de que deseas eliminar este cliente?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<div class="container text-center card text-white bg-primary mb-3" style="max-width: 20rem;" >
-
-
-
-<div id="clientes" class="card-header"><h1>Clientes</h1></div>
-
-<div class="card-body bg-light">
-  <% @clientes.each do |cliente| %>
-    <%= render cliente %>
-    <p>
-      <%= link_to "Mostrar este cliente", cliente %>
-    </p>
-  <% end %>
-
-
-<%= link_to "Nuevo cliente", new_cliente_path %>
-</div>
-</div>
+<%= link_to 'Nuevo Cliente', new_cliente_path %>

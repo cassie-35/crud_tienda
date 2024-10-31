@@ -1,5 +1,6 @@
-<%= stylesheet_link_tag 'dpyp', media: 'all' %>
-<h1>Lista de Productos</h1>
+<h1>Productos</h1>
+
+<%= link_to 'Nuevo Producto', new_producto_path %>
 
 <table>
   <thead>
@@ -7,9 +8,7 @@
       <th>Nombre</th>
       <th>Precio</th>
       <th>Stock</th>
-      <th>Descripción</th>
-      <th>Categoría</th>
-      <th>Proveedor</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -18,9 +17,11 @@
         <td><%= producto.nombre %></td>
         <td><%= number_to_currency(producto.precio) %></td>
         <td><%= producto.stock %></td>
-        <td><%= producto.descripcion %></td>
-        <td><%= producto.categoria.nombre if producto.categoria %></td>
-        <td><%= producto.proveedor.nombre if producto.proveedor %></td>
+        <td>
+          <%= link_to 'Mostrar', producto_path(producto) %>
+          <%= link_to 'Editar', edit_producto_path(producto) %>
+          <%= link_to 'Eliminar', producto_path(producto), method: :delete, data: { confirm: '¿Estás seguro?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

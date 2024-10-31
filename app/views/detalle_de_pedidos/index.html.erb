@@ -1,23 +1,32 @@
-<%= stylesheet_link_tag 'dpyp', media: 'all' %>
-<h1>Lista de Pedidos</h1>
+<h1>Detalles de Pedidos</h1>
 
 <table>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Fecha</th> <!-- Agrega otros campos relevantes aquí -->
+      <th>Cantidad</th>
+      <th>Precio Unitario</th>
+      <th>Subtotal</th>
+      <th>Pedido</th>
+      <th>Producto</th>
       <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
-    <% @detalle_de_pedido.each do |pedido| %>
+    <% @detalle_de_pedidos.each do |detalle| %>
       <tr>
-        <td><%= pedido.id %></td>
-        <td><%= pedido.created_at %></td> <!-- Muestra la fecha de creación -->
+        <td><%= detalle.cantidad %></td>
+        <td><%= detalle.precio_unitario %></td>
+        <td><%= detalle.subtotal %></td>
+        <td><%= detalle.pedido_id %></td>
+        <td><%= detalle.producto_id %></td>
         <td>
-          <%= link_to 'Ver Detalles', detalle_de_pedido_path(pedido) %>
+          <%= link_to 'Ver', detalle %>
+          <%= link_to 'Editar', edit_detalle_de_pedido_path(detalle) %>
+          <%= link_to 'Eliminar', detalle, method: :delete, data: { confirm: '¿Estás seguro de que deseas eliminar este detalle de pedido?' } %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to 'Nuevo Detalle de Pedido', new_detalle_de_pedido_path %>

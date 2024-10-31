@@ -32,9 +32,10 @@
   </div>
 
   <div>
-    <%= form.label :categoria_id %>
-    <%= form.collection_select :categorias_id, Categoria.all, :id, :nombre, prompt: true %>
-  </div>
+  <%= form.label :categorium_id %>
+  <%= form.collection_select :categorium_id, Categorium.all, :id, :nombre, prompt: true %>
+</div>
+
 
   <div>
     <%= form.label :proveedor_id %>

@@ -1,4 +1,4 @@
-<div id="<%= dom_id producto %>">
+<div id="<%= dom_id producto %>" class="producto-container">
   <p>
     <strong>Nombre:</strong>
     <%= producto.nombre %>
@@ -6,7 +6,7 @@
 
   <p>
     <strong>Precio:</strong>
-    <%= producto.precio %>
+    <%= number_to_currency(producto.precio, unit: 'S/', format: '%u%n') %> <!-- Formateo de precio -->
   </p>
 
   <p>
@@ -15,18 +15,18 @@
   </p>
 
   <p>
-    <strong>Descripcion:</strong>
-    <%= producto.descripcion %>
+    <strong>Descripción:</strong>
+    <%= truncate(producto.descripcion, length: 100) %> <!-- Límite de caracteres -->
   </p>
 
   <p>
-    <strong>Categoria:</strong>
-    <%= producto.categoria_id %>
+    <strong>Categoría:</strong>
+    <%= producto.categorium.nombre if producto.categorium.present? %> <!-- Mostrar nombre de la categoría -->
   </p>
 
   <p>
     <strong>Proveedor:</strong>
-    <%= producto.proveedor_id %>
+    <%= producto.proveedor.nombre if producto.proveedor.present? %> <!-- Mostrar nombre del proveedor -->
   </p>
-
 </div>
+

@@ -1,0 +1,14 @@
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
+
+<p class="notice"><%= notice %></p>
+
+<div class="usuario-detalle">
+  <%= render @categorium %>
+</div>
+
+<div>
+  <%= link_to "Edit this category", edit_categorium_path(@categorium), class: "btn btn-edit" %> |
+  <%= link_to "Back to Categories", categoria_path, class: "btn btn-back" %>
+
+  <%= button_to "Destroy this categorium", @categorium, method: :delete, class: "btn btn-delete" %>
+</div>

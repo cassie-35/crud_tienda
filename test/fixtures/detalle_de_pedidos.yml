@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cantidad: 1
+  precio_unitario: 9.99
+  subtotal: 9.99
+  pedido: one
+  producto: one
+
+two:
+  cantidad: 1
+  precio_unitario: 9.99
+  subtotal: 9.99
+  pedido: two
+  producto: two

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha_pedido: 2024-10-29
+  total: 9.99
+  estado: MyString
+  metodo_de_pago: MyString
+  cliente: one
+
+two:
+  fecha_pedido: 2024-10-29
+  total: 9.99
+  estado: MyString
+  metodo_de_pago: MyString
+  cliente: two

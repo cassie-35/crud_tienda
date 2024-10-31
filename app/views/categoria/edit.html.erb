@@ -1,0 +1,11 @@
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
+
+<% content_for :title, "Editing Category" %>
+<h1>Editing Category</h1>
+
+<%= render "form", categorium: @categorium %>
+
+<div class="actions">
+  <%= link_to "Show this Category", @categorium, class: "btn btn-view" %>
+  <%= link_to "Back to Categories", categoria_path, class: "btn btn-back" %>
+</div>

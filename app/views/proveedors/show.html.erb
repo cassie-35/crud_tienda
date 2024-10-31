@@ -1,0 +1,14 @@
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
+
+<p class="notice"><%= notice %></p>
+
+<div class="usuario-detalle">
+  <%= render @proveedor %>
+</div>
+
+<div>
+  <%= link_to "Edit this Proveedor", edit_proveedor_path(@proveedor), class: "btn btn-edit" %> |
+  <%= link_to "Back to Proveedores", proveedors_path, class: "btn btn-back" %>
+
+  <%= button_to "Destroy this Proveedor", @proveedor, method: :delete, class: "btn btn-delete" %>
+</div>

@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Pedidos" %>
+
+<div class="container text-center card text-white bg-success mb-3" style="max-width: 20rem;" >
+
+
+
+
+
+<div id="pedidos" class="card-header"><h1>Pedidos</h1></div>
+
+<div class="card-body bg-light">
+  <% @pedidos.each do |pedido| %>
+    <%= render pedido %>
+    <p>
+      <%= link_to "Mostrar ese pedido", pedido %>
+    </p>
+  <% end %>
+
+
+<%= link_to "Nuevo pedido", new_pedido_path %>
+</div>
+</div>

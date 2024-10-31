@@ -1,0 +1,11 @@
+<%= stylesheet_link_tag 'cyp', media: 'all' %>
+
+<% content_for :title, "Editing Proveedor" %>
+<h1>Editing Proveedor</h1>
+
+<%= render "form", proveedor: @proveedor %>
+
+<div class="actions">
+  <%= link_to "Show this Proveedor", @proveedor, class: "btn btn-view" %>
+  <%= link_to "Back to Proveedores", proveedors_path, class: "btn btn-back" %>
+</div>
